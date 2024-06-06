@@ -20,12 +20,14 @@ class ColoredButton extends Component {
         const styles = {
             backgroundColor: palette[this.state.status],
             borderRadius: "10%",
-            padding : "5px",
+            height: "50px",
+            width: "50px",
+            margin: "5px",
         };
 
         return (
             <button style={styles} onClick={this.changeColor}>
-                <p style = {{color: "aquamarine", margin: "0px"}}>{this.props.value}</p>
+                <p style = {{color: "aquamarine", margin: "0px", fontSize: "25px"}}>{this.props.value}</p>
             </button>
         );
     }
