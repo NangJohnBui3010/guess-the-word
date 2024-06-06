@@ -7,27 +7,33 @@ class ColoredButton extends Component {
             status: 0,
         };
         this.changeColor = this.changeColor.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
 
-    changeColor() {
+    changeColor(color) {
         this.setState((prevState) => ({
-            status: (prevState.status + 1) % 4
+            status: color,
         }));
     }
 
+    handleClick() {
+
+    }
+
     render() {
-        const palette = ["gray", "black", "darkOrange", "green"];
+        const palette = ["white", "black", "darkOrange", "green"];
         const styles = {
             backgroundColor: palette[this.state.status],
             borderRadius: "10%",
-            height: "50px",
-            width: "50px",
+            /*height: "50px",
+            width: "50px",*/
             margin: "5px",
+            padding: "10px"
         };
 
         return (
-            <button style={styles} onClick={this.changeColor}>
-                <p style = {{color: "aquamarine", margin: "0px", fontSize: "25px"}}>{this.props.value}</p>
+            <button style={styles} onClick={this.handleClick}>
+                <p style = {{color: "grey", margin: "0px", fontSize: "25px"}}>{this.props.value}</p>
             </button>
         );
     }
