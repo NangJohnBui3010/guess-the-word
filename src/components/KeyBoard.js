@@ -1,40 +1,43 @@
-import ColoredButton from "./ColoredButton";
+import { KeyBoardButton } from "./KeyBoardButton";
 import React, {Children, Component} from 'react';
+
 class KeyBoard extends Component{
     constructor(props){
-        super(props)
+        super(props);
     }
     render(){
         return(
             <div>
-                <ColoredButton value = "Q"/>
-                <ColoredButton value = "W"/>
-                <ColoredButton value = "E"/>
-                <ColoredButton value = "R"/>
-                <ColoredButton value = "T"/>
-                <ColoredButton value = "Y"/>
-                <ColoredButton value = "U"/>
-                <ColoredButton value = "I"/>
-                <ColoredButton value = "O"/>
-                <ColoredButton value = "P"/>
+                <KeyBoardButton game = {this.props.game} value = "Q"/>
+                <KeyBoardButton game = {this.props.game} value = "W"/>
+                <KeyBoardButton game = {this.props.game} value = "E"/>
+                <KeyBoardButton game = {this.props.game} value = "R"/>
+                <KeyBoardButton game = {this.props.game} value = "T"/>
+                <KeyBoardButton game = {this.props.game} value = "Y"/>
+                <KeyBoardButton game = {this.props.game} value = "U"/>
+                <KeyBoardButton game = {this.props.game} value = "I"/>
+                <KeyBoardButton game = {this.props.game} value = "O"/>
+                <KeyBoardButton game = {this.props.game} value = "P"/>
                 <br/>
-                <ColoredButton value = "A"/>
-                <ColoredButton value = "S"/>
-                <ColoredButton value = "D"/>
-                <ColoredButton value = "F"/>
-                <ColoredButton value = "G"/>
-                <ColoredButton value = "H"/>
-                <ColoredButton value = "J"/>
-                <ColoredButton value = "K"/>
-                <ColoredButton value = "L"/>
+                <KeyBoardButton game = {this.props.game} value = "S"/>
+                <KeyBoardButton game = {this.props.game} value = "A"/>
+                <KeyBoardButton game = {this.props.game} value = "D"/>
+                <KeyBoardButton game = {this.props.game} value = "F"/>
+                <KeyBoardButton game = {this.props.game} value = "G"/>
+                <KeyBoardButton game = {this.props.game} value = "H"/>
+                <KeyBoardButton game = {this.props.game} value = "J"/>
+                <KeyBoardButton game = {this.props.game} value = "K"/>
+                <KeyBoardButton game = {this.props.game} value = "L"/>
                 <br/>
-                <ColoredButton value = "Z"/>
-                <ColoredButton value = "X"/>
-                <ColoredButton value = "C"/>
-                <ColoredButton value = "V"/>
-                <ColoredButton value = "B"/>
-                <ColoredButton value = "N"/>
-                <ColoredButton value = "M"/>
+                <KeyBoardButton game = {this.props.game} value = "Enter"/>
+                <KeyBoardButton game = {this.props.game} value = "Z"/>
+                <KeyBoardButton game = {this.props.game} value = "X"/>
+                <KeyBoardButton game = {this.props.game} value = "C"/>
+                <KeyBoardButton game = {this.props.game} value = "V"/>
+                <KeyBoardButton game = {this.props.game} value = "B"/>
+                <KeyBoardButton game = {this.props.game} value = "N"/>
+                <KeyBoardButton game = {this.props.game} value = "M"/>
+                <KeyBoardButton game = {this.props.game} value = "Delete"/>
             </div>
         )
     }
