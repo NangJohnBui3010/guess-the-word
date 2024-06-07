@@ -25,8 +25,8 @@ class ColoredButton extends Component {
         const styles = {
             backgroundColor: palette[this.state.status],
             borderRadius: "10%",
-            /*height: "50px",
-            width: "50px",*/
+            height: this.props.height ? `${this.props.height}` : "auto",
+            width: this.props.width ? `${this.props.width}` : "auto",
             margin: "5px",
             padding: "10px"
         };
