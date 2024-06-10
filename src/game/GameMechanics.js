@@ -8,7 +8,7 @@ function getRndInteger(min, max) {
 }
 function getRandomWord() {
     // Change it to random function
-    return acceptedWords[getRndInteger(1,4)];
+    return acceptedWords[getRndInteger(0,3)];
 }
 
 const NOT_FINISHED = 0;
