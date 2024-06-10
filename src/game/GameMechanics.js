@@ -1,16 +1,23 @@
+import { compareWords } from "./CompareWords";
 const acceptedWords = [
     'TRACE', 'TRACK', 'TRICK', 'NICKY'
 ]
 
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
 function getRandomWord() {
     // Change it to random function
-    return acceptedWords[0];
+    return acceptedWords[getRndInteger(1,4)];
 }
 
 const NOT_FINISHED = 0;
 const WIN = 1;
 const LOSE = 2;
-
+const WHITE = 0;
+const BLACK = 1;
+const DARKORANGE = 2;
+const GREEN = 3;
 export class Game {
     constructor() {
         this.chosenWord = getRandomWord();
@@ -34,13 +41,14 @@ export class Game {
     checkWord() {
         // Write code to check the word over here
         let res = [];
-
+        res = compareWords(this.curWord,this.chosenWord)
         // 
         this.curWord = "";
         this.guessTurn++;
         
         // Change endGame value if the game is finished
-
+        if(res == ["3","3","3","3","3"] || this.guessTurn > 5)
+            this.endGame = !NOT_FINISHED
         return res;
     }
 

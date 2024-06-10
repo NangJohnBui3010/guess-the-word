@@ -15,8 +15,7 @@ function App() {
    */
 
   useEffect(() => {
-    const gameInstance = new Game();
-    setNewGame(gameInstance);
+    setNewGame(new Game());
   }, []);
 
   return (
