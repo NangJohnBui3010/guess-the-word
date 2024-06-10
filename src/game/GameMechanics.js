@@ -8,7 +8,7 @@ function getRndInteger(min, max) {
 }
 function getRandomWord() {
     // Change it to random function
-    return acceptedWords[getRndInteger(0,acceptedWords.length()-1)];
+    return acceptedWords[getRndInteger(0,acceptedWords.length-1)];
 }
 
 const NOT_FINISHED = 0;
@@ -18,6 +18,7 @@ const WHITE = 0;
 const BLACK = 1;
 const DARKORANGE = 2;
 const GREEN = 3;
+
 export class Game {
     constructor() {
         this.chosenWord = getRandomWord();
