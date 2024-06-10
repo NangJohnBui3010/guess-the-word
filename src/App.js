@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       {newGame && <GameBoard game={newGame} key={reload}/>}
-      {newGame && <KeyBoard game={newGame} />}
+      {newGame && <KeyBoard game={newGame} key={!reload}/>}
     </div>
   );
 }

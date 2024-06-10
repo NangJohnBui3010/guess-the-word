@@ -3,7 +3,13 @@ import React, { Children, Component } from 'react';
 class ColoredButton extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+
+        if (this.props.color) {
+            this.state = {
+                status: this.props.color,
+            };
+        }
+        else this.state = {
             status: 0,
         };
         this.changeColor = this.changeColor.bind(this);
@@ -22,8 +28,10 @@ class ColoredButton extends Component {
 
     render() {
         const palette = ["white", "black", "darkOrange", "green"];
+        const color = ["black", "white", "white", "white"];
         const styles = {
             backgroundColor: palette[this.state.status],
+            color: color[this.state.status],
             borderRadius: "10%",
             height: this.props.height ? `${this.props.height}` : "auto",
             width: this.props.width ? `${this.props.width}` : "auto",
@@ -33,7 +41,7 @@ class ColoredButton extends Component {
 
         return (
             <button style={styles} onClick={this.handleClick}>
-                <p style = {{color: "grey", margin: "0px", fontSize: "25px"}}>{this.props.value}</p>
+                <p style = {{margin: "0px", fontSize: "25px"}}>{this.props.value}</p>
             </button>
         );
     }

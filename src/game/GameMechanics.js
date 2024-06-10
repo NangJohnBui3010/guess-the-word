@@ -32,6 +32,10 @@ export class Game {
             this.gameBoardColor.push([0, 0, 0, 0, 0]);
             this.gameBoardValue.push([""])
         }
+
+        this.letterColor = [];
+        for (let i = 0; i < 26; ++i)
+            this.letterColor.push(0);
     }
 
     getValue(i, j) {
@@ -43,13 +47,23 @@ export class Game {
         // Write code to check the word over here
         let res = [];
         res = compareWords(this.curWord,this.chosenWord)
+
+        for (let i = 0; i < 5; ++ i) {
+            let char = this.curWord[i].charCodeAt(0) - 'A'.charCodeAt(0);
+            this.letterColor[char] = Math.max(this.letterColor[char], res[i]);
+        }
+
+        console.log(this.letterColor)
         // 
         this.curWord = "";
         this.guessTurn++;
         
         // Change endGame value if the game is finished
-        if(res == ["3","3","3","3","3"] || this.guessTurn > 5)
-            this.endGame = !NOT_FINISHED
+        if(res == ["3","3","3","3","3"])
+            this.game = WIN;
+        else if (this.guessTurn == 5)
+            this.endGame = LOSE;
+
         return res;
     }
 
@@ -61,24 +75,23 @@ export class Game {
     keyBoardEventHandler(key) {
         if (key === 'Enter') {
             console.log(this.curWord);
-            if (this.curWord.length < 5) return [0, 0, 0, 0, 0];
-            else if (! (acceptedWords.includes(this.curWord))) return [0, 0, 0, 0, 0];  
-            else return this.checkWord();
+            if (this.curWord.length < 5) this.gameBoardColor[this.guessTurn] = [0, 0, 0, 0, 0];
+            else if (! (acceptedWords.includes(this.curWord))) this.gameBoardColor[this.guessTurn] = [0, 0, 0, 0, 0];  
+            else this.gameBoardColor[this.guessTurn] = this.checkWord();
         }
         else if (key === 'Delete') {
             if (this.curWord.length > 0) {
                 this.curWord = this.curWord.slice(0,  this.curWord.length - 1);
                 this.gameBoardValue[this.guessTurn] = this.curWord;
             }
-            return [0, 0, 0, 0, 0];
+            this.gameBoardColor[this.guessTurn] = [0, 0, 0, 0, 0];
         }
         else {
             if (this.curWord.length < 5) {
                 this.curWord += key;
                 this.gameBoardValue[this.guessTurn] = this.curWord;
-                console.log(this.gameBoardValue);
             }
-            return [0, 0, 0, 0, 0];
+            this.gameBoardColor[this.guessTurn] =  [0, 0, 0, 0, 0];
         }
     }
 
