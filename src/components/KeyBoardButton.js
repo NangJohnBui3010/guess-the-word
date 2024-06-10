@@ -1,15 +1,21 @@
 import { triggerGameBoardReload } from "../triggers/GameBoardReload";
 import ColoredButton from "./ColoredButton";
 
+const convertLetterToInt = (char) => {
+    return char.charCodeAt(0) - 'A'.charCodeAt(0);
+}
+
 export class KeyBoardButton extends ColoredButton {
     constructor(props) {
         super(props);
-
+        this.state = {
+            status: this.props.game.letterColor[convertLetterToInt(this.props.value[0])],
+        };
     }
 
     handleClick() {
         triggerGameBoardReload();
-        let joe = this.props.game.keyBoardEventHandler(this.props.value);
+        this.props.game.keyBoardEventHandler(this.props.value);
         // Deal with this later
     }
 }
