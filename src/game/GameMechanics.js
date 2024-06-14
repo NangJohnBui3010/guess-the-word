@@ -24,7 +24,6 @@ export class Game {
         this.curWord = "";
         this.guessTurn = 0;
         this.endGame = NOT_FINISHED; 
-
         this.gameBoardColor = [];
         this.gameBoardValue = [];
         for (let i = 0; i < 5; ++i) {
