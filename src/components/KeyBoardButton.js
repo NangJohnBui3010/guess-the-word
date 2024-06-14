@@ -16,6 +16,10 @@ export class KeyBoardButton extends ColoredButton {
     handleClick() {
         triggerGameBoardReload();
         this.props.game.keyBoardEventHandler(this.props.value);
+        console.log(this.props.game.isEndGame())
+        if(this.props.setEndGame){
+            this.props.setEndGame(this.props.game.isEndGame())
+        }
         // Deal with this later
     }
 }

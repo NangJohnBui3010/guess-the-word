@@ -19,8 +19,8 @@ class KeyBoard extends Component{
                 <KeyBoardButton game = {this.props.game} value = "O"/>
                 <KeyBoardButton game = {this.props.game} value = "P"/>
                 <br/>
-                <KeyBoardButton game = {this.props.game} value = "S"/>
                 <KeyBoardButton game = {this.props.game} value = "A"/>
+                <KeyBoardButton game = {this.props.game} value = "S"/>
                 <KeyBoardButton game = {this.props.game} value = "D"/>
                 <KeyBoardButton game = {this.props.game} value = "F"/>
                 <KeyBoardButton game = {this.props.game} value = "G"/>
@@ -29,7 +29,7 @@ class KeyBoard extends Component{
                 <KeyBoardButton game = {this.props.game} value = "K"/>
                 <KeyBoardButton game = {this.props.game} value = "L"/>
                 <br/>
-                <KeyBoardButton game = {this.props.game} value = "Enter"/>
+                <KeyBoardButton setEndGame = {this.props.setEndGame} game = {this.props.game} value = "Enter"/>
                 <KeyBoardButton game = {this.props.game} value = "Z"/>
                 <KeyBoardButton game = {this.props.game} value = "X"/>
                 <KeyBoardButton game = {this.props.game} value = "C"/>

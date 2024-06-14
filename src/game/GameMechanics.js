@@ -1,6 +1,6 @@
 import { compareWords } from "./CompareWords";
 const acceptedWords = [
-    'TRACE', 'TRACK', 'TRICK', 'NICKY'
+    'TRACE', 'TRACK', 'TRICK', 'NICKY', 'ABOUT', 'ABOVE', 'ABUSE', 'BOOTH', 'BOUND', 'BRAIN'
 ]
 
 function getRndInteger(min, max) {
@@ -59,11 +59,16 @@ export class Game {
         this.guessTurn++;
         
         // Change endGame value if the game is finished
-        if(res == ["3","3","3","3","3"])
-            this.game = WIN;
+        let checkWin = 1;
+        for(let i = 0; i < 5; i++){
+            if(res[i] != 3){
+                checkWin = 0;
+                break;
+            }
+        }
+        if(checkWin)this.endGame = WIN;
         else if (this.guessTurn == 5)
             this.endGame = LOSE;
-
         return res;
     }
 
@@ -95,7 +100,13 @@ export class Game {
         }
     }
 
+    guessCount(){
+        return this.guessTurn;
+    }
     isEndGame() {
         return this.endGame;
+    }
+    answer(){
+        return this.chosenWord;
     }
 }

@@ -28,8 +28,6 @@ export function compareWords(a,b){
     }
     return res;
 }
-
-let expectedValue = ["2","2","2","1","1"]
 let s1 = "mmmmml"
 let s2 = "mammal"
 let s3 = "llat"
