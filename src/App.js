@@ -24,7 +24,7 @@ function App() {
         return response.text();
       })
       .then((text) => {
-        const wordsArray = text.toUpperCase().split('\n');
+        const wordsArray = text.toUpperCase().split('\r\n');
         setWordListContent(wordsArray);
         console.log(wordsArray[0])
         return text;

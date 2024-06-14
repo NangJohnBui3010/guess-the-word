@@ -82,6 +82,7 @@ export class Game {
     keyBoardEventHandler(key) {
         if (key === 'Enter') {
             console.log(this.curWord);
+            console.log(this.acceptedWords.includes(this.curWord))
             if (this.curWord.length < 5) this.gameBoardColor[this.guessTurn] = [0, 0, 0, 0, 0];
             else if (! (this.acceptedWords.includes(this.curWord))) this.gameBoardColor[this.guessTurn] = [0, 0, 0, 0, 0];  
             else this.gameBoardColor[this.guessTurn] = this.checkWord();
