@@ -18,7 +18,7 @@ function App() {
    * Insert code to check if the game is finished after every clicking or typing event under here 
    */
   useEffect(() => {
-    fetch('/wordlist.txt')
+    fetch(`${process.env.PUBLIC_URL}/wordlist.txt`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
