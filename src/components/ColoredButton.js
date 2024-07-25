@@ -1,5 +1,5 @@
 import React, { Children, Component } from 'react';
-
+import { motion } from 'framer-motion';
 class ColoredButton extends Component {
     constructor(props) {
         super(props);
@@ -40,9 +40,18 @@ class ColoredButton extends Component {
         };
 
         return (
-            <button style={styles} onClick={this.handleClick}>
+            
+            <motion.button 
+                style={styles} onClick={this.handleClick}
+                initial={{ opacity: 0.6 }}
+                whileHover={{
+                    scale: 1.2,
+                    transition: { duration: 0.125 },
+                }}
+                whileTap={{ scale: 0.9 }}
+                whileInView={{ opacity: 1 }}>
                 <p style = {{margin: "0px", fontSize: "25px"}}>{this.props.value}</p>
-            </button>
+            </motion.button>
         );
     }
 }

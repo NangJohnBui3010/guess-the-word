@@ -18,8 +18,9 @@ const DARKORANGE = 2;
 const GREEN = 3;
 
 export class Game {
-    constructor(acceptedWords) {
+    constructor(acceptedWords, setRightWordStatus) {
         this.acceptedWords = acceptedWords
+        this.setRightWordStatus = setRightWordStatus
         this.chosenWord = this.getRandomWord();
         this.curWord = "";
         this.guessTurn = 0;
@@ -81,13 +82,19 @@ export class Game {
      */
     keyBoardEventHandler(key) {
         if (key === 'Enter') {
-            console.log(this.curWord);
-            console.log(this.acceptedWords.includes(this.curWord))
             if (this.curWord.length < 5) this.gameBoardColor[this.guessTurn] = [0, 0, 0, 0, 0];
-            else if (! (this.acceptedWords.includes(this.curWord))) this.gameBoardColor[this.guessTurn] = [0, 0, 0, 0, 0];  
-            else this.gameBoardColor[this.guessTurn] = this.checkWord();
+            else if (! (this.acceptedWords.includes(this.curWord))){
+                this.gameBoardColor[this.guessTurn] = [0, 0, 0, 0, 0];
+                this.setRightWordStatus(0);
+            }  
+            else {
+                this.setRightWordStatus(1)
+                this.gameBoardColor[this.guessTurn] = this.checkWord();
+            }
+            console.log("Current word: "+this.curWord);
         }
         else if (key === 'Delete') {
+            this.setRightWordStatus(1)
             if (this.curWord.length > 0) {
                 this.curWord = this.curWord.slice(0,  this.curWord.length - 1);
                 this.gameBoardValue[this.guessTurn] = this.curWord;
@@ -95,6 +102,7 @@ export class Game {
             this.gameBoardColor[this.guessTurn] = [0, 0, 0, 0, 0];
         }
         else {
+            this.setRightWordStatus(1)
             if (this.curWord.length < 5) {
                 this.curWord += key;
                 this.gameBoardValue[this.guessTurn] = this.curWord;
@@ -111,5 +119,8 @@ export class Game {
     }
     answer(){
         return this.chosenWord;
+    }
+    currentWord(){
+        return this.curWord;
     }
 }

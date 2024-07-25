@@ -5,6 +5,7 @@ import KeyBoard from './components/KeyBoard';
 import { Game } from './game/GameMechanics';
 import { GameBoard } from './components/GameBoard';
 import { useGameBoardReloadTrigger } from './triggers/GameBoardReload';
+import NotAWordDisplay from './components/NotAWord';
 import EndingScene from './components/EndingScene';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
   const [newGame, setNewGame] = useState(null);
   const [endGame, setEndGame] = useState(0);
   const [reload, triggerReload] = useGameBoardReloadTrigger();
+  const [rightWordStatus, setRightWordStatus] = useState(1);
   /**
    * Insert code to check if the game is finished after every clicking or typing event under here 
    */
@@ -35,7 +37,7 @@ function App() {
   }, []);
   
   useEffect(() => {
-    setNewGame(new Game(wordListContent));
+    setNewGame(new Game(wordListContent,setRightWordStatus));
   }, [wordListContent]);
 
   return (
@@ -43,8 +45,8 @@ function App() {
       <h1>Guess the word</h1>
       {newGame && <GameBoard game={newGame} key={reload}/>}
       {newGame && <KeyBoard setEndGame = {setEndGame} game={newGame} key={!reload}/>}
+      {newGame && !rightWordStatus && <NotAWordDisplay game = {newGame}/>}
       {(newGame && newGame.isEndGame() != 0) && <EndingScene guessCount = {newGame.guessCount()} value = {newGame.isEndGame()} answer = {newGame.answer()} />}
-      {/*wordListContent && <h1>{wordListContent[4668]}</h1>*/}
     </div>
   );
 }
