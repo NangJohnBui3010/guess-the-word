@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/guess-the-word/static/css/main.f855e6bc.css",
-    "main.js": "/guess-the-word/static/js/main.ae1f2568.js",
+    "main.js": "/guess-the-word/static/js/main.ac4d43ed.js",
     "static/js/453.d6934e38.chunk.js": "/guess-the-word/static/js/453.d6934e38.chunk.js",
     "static/media/logo.svg": "/guess-the-word/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/guess-the-word/index.html",
     "main.f855e6bc.css.map": "/guess-the-word/static/css/main.f855e6bc.css.map",
-    "main.ae1f2568.js.map": "/guess-the-word/static/js/main.ae1f2568.js.map",
+    "main.ac4d43ed.js.map": "/guess-the-word/static/js/main.ac4d43ed.js.map",
     "453.d6934e38.chunk.js.map": "/guess-the-word/static/js/453.d6934e38.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.ae1f2568.js"
+    "static/js/main.ac4d43ed.js"
   ]
 }
